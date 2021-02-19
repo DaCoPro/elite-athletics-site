@@ -11,17 +11,20 @@ export default function NavBar({ user, setUser }) {
   }
 
   return (
-    <div className="navBar">
+    <div>
       {user ? 
-        <nav>
-          <Link to="/about">Elite Athletics</Link>
-          {user.trainer ? <Link to="/trainerportal">Portal</Link> : <Link>Portal</Link>}
-          <button onClick={handleLogOut}>LogOut</button>
+        <nav className="navBar">
+          
+          <Link className="leftNavItem" to="/about">Elite Athletics</Link>
+          <div className="rightNavItem" >
+            {user.trainer ? <Link to="/trainerportal">Portal</Link> : <Link>Portal</Link>}
+            <button onClick={handleLogOut}>LogOut</button>
+          </div>
         </nav>
       :
-        <nav>
-          <Link to="/about">Elite Athletics</Link>
-          <Link to="/login"><button>Login</button></Link>
+        <nav className="navBar">
+          <Link className="leftNavItem" to="/about">Elite Athletics</Link>
+          <Link className="rightNavItem" to="/login"><button>Login</button></Link>
         </nav>
       }
     </div>

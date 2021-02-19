@@ -28,7 +28,7 @@ export default function App() {
             <TrainerPortal user={user}/>
           </Route>
           <Route path="/login">
-            <AuthPage />
+            <AuthPage setUser={setUser}/>
           </Route>
           <Redirect to="/about" />
         </Switch>
