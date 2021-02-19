@@ -18,6 +18,10 @@ const userSchema = new Schema({
     trim: true,
     minLength: 3,
     required: true
+  },
+  trainer: {
+    type: Boolean,
+    default: false
   }
 }, {
   timestamps: true,

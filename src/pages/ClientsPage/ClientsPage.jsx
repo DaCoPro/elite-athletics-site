@@ -1,6 +1,6 @@
 import * as usersService from '../../utilities/users-service';
 
-export default function OrderHistoryPage() {
+export default function OrderHistoryPage({ user }) {
 
 async function handleCheckToken() {
     const expDate = await usersService.checkToken();
@@ -9,8 +9,7 @@ async function handleCheckToken() {
 
     return (
     <>
-        <h1>OrderHistoryPage</h1>
-        <button onClick={handleCheckToken}>Check When My Login Expires</button>
+        {user.trainer ? <h1>Welcome, Trainer.</h1> : <h1>We don't serve your kind here.</h1>}
     </>
     );
 }
