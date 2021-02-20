@@ -3,6 +3,8 @@ require('./config/database');
 
 const User = require('./models/user');
 const Workout = require('./models/workout');
+const Nutrition = require('./models/nutrition');
+const Checkin = require('./models/checkin');
 
 
 (async function () {
@@ -14,7 +16,13 @@ const Workout = require('./models/workout');
     //     {name: 'testClient2', email: 'testClient2@email.com', password: 'testClient222'},
     // ]);
 
-    const workouts = await Workout.create([
+    // const workouts = await Workout.create([
+    //     {name:'testing!', user:'60301484941a984ad6f47ff3'}
+    // ]);
+    const nutitionPlans = await Nutrition.create([
+        {name:'testing!', user:'60301484941a984ad6f47ff3'}
+    ]);
+    const checkins = await Checkin.create([
         {name:'testing!', user:'60301484941a984ad6f47ff3'}
     ]);
 

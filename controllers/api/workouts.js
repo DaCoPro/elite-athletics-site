@@ -5,8 +5,8 @@ module.exports = {
 }
 
 async function getAll(req, res) {
-    // const workouts = await Workout.find({user:});
+    const workouts = await Workout.find({});
     console.log(req.body)
-    return res.status(200).json();
+    return res.status(200).json(workouts);
   }
   

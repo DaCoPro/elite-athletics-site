@@ -1,14 +1,19 @@
+import { useState, useEffect } from 'react';
+import * as workoutsAPI from '../../utilities/workouts-api';
 
 
-export default function ClientListItem({ client, activeClient, setActiveClient, activeWorkouts, setActiveWorkouts}) {
+export default function ClientListItem({ client, activeClient, setActiveClient, activeWorkouts, setActiveWorkouts, workouts}) {
     
-    function handleClick() {
+    async function handleClick() {
         setActiveClient(client);
-        //get all workouts from DB that match user's ID
-        //set active as that user's
-        //repeat for nutrition & Check-in information
+        //filter workouts by user ID, resulting list is active (relevent to selected) workouts
+        const userWorkouts = workouts.filter(workout => workout.user === client._id)
+        setActiveWorkouts(userWorkouts);
     }
     return (
-        <h2 onClick={handleClick} >{client.name}</h2>
+        <div>
+
+            <h2 onClick={handleClick} >{client.name}</h2>
+        </div>
     )
 }
