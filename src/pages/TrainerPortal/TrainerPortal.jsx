@@ -1,5 +1,11 @@
-export default function TrainerPortal() {
+import ClientsList from '../../components/ClientsList/ClientsList';
+
+
+export default function TrainerPortal({ user }) {
     return (
-        <button>All Clients</button>
+        <div>
+            
+            <ClientsList user={user}/>
+        </div>
     )
 }

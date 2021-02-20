@@ -5,8 +5,6 @@ import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import TrainerPortal from '../TrainerPortal/TrainerPortal';
 import About from '../About/About';
-import NewOrderPage from '../NewOrderPage/NewOrderPage';
-import ClientsPage from '../ClientsPage/ClientsPage';
 import NavBar from '../../components/NavBar/NavBar';
 
 
@@ -20,9 +18,6 @@ export default function App() {
         <Switch>
           <Route path="/about">
             <About user={user}/>
-          </Route>
-          <Route path="/clients">
-            <ClientsPage user={user}/>
           </Route>
           <Route path="/trainerportal">
             <TrainerPortal user={user}/>
