@@ -8,17 +8,17 @@ import * as nutritionAPI from '../../utilities/nutrition-api';
 import { useState, useEffect } from 'react';
 
 export default function TrainerPortal({ user }) {
+    //Initialize all client state here
     const [clients, setClients] = useState([]);
     const [workouts, setWorkouts] = useState([]);
     const [checkins, setCheckins] = useState([]);
     const [nutritionPlans, setNutritionPlans] = useState([]);
-
     const [activeClient, setActiveClient] = useState([]);
     const [activeWorkouts, setActiveWorkouts] = useState([]);
     const [activeCheckins, setActiveCheckins] = useState([]);
     const [activeNutritionPlans, setActiveNutritionPlans] = useState([]);
 
-    //get all users that aren't trainers on load
+    //On Load, querry all data about clients from the DB
     useEffect(function() {
         async function getData() {
             if (user) {
@@ -35,19 +35,6 @@ export default function TrainerPortal({ user }) {
         getData();
     }, [user]);
     
-    //get all workout plans on load (will repeat for nutrition and checkins)
-    // useEffect(function() {
-    //     async function getWorkouts() {
-    //         if (user) {
-    //             const workouts = await workoutsAPI.getAll();
-    //             setWorkouts(workouts);
-    //         }
-            
-    //     }
-    //     getWorkouts();
-    // }, [user]);
-    console.log(nutritionPlans)
-    console.log(checkins)
     return (
         <div className="trainerPortal">
             <div className="clientIndex">
@@ -59,6 +46,10 @@ export default function TrainerPortal({ user }) {
                     activeWorkouts={activeWorkouts}
                     setActiveWorkouts={setActiveWorkouts}
                     workouts={workouts}
+                    checkins={checkins}
+                    setActiveCheckins={setActiveCheckins}
+                    nutritionPlans={nutritionPlans}
+                    setActiveNutritionPlans={setActiveNutritionPlans}
                 />
             </div>
             <div className="clientDetail">
@@ -66,7 +57,8 @@ export default function TrainerPortal({ user }) {
                 <ClientDetails 
                     activeClient={activeClient}
                     activeWorkouts={activeWorkouts}
-                    setActiveWorkouts={setActiveWorkouts}
+                    activeNutritionPlans={activeNutritionPlans}
+                    activeCheckins={activeCheckins}
                 />   
             </div>
         </div>
