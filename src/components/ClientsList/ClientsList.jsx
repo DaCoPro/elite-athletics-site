@@ -1,26 +1,12 @@
 import './ClientsList.css';
 import ClientListItem from '../ClientListItem/ClientListItem';
-import * as trainersAPI from '../../utilities/trainers-api';
-import { useState, useEffect } from 'react';
 
-export default function ClientsList({ user }) {
-    const [clients, setClients] = useState([]);
 
+export default function ClientsList({ user, clients, activeClient, setActiveClient, activeWorkouts, setActiveWorkouts }) {
+    
     const clientList = clients.map(c =>
-       
-          <ClientListItem key={c._id} client={c}/>
-        
+          <ClientListItem key={c._id} client={c} activeClient={activeClient} setActiveClient={setActiveClient} activeWorkouts={activeWorkouts} setActiveWorkouts={setActiveWorkouts} />
     );
-
-    useEffect(function() {
-        async function getClients() {
-            if (user) {
-                const clients = await trainersAPI.getClients();
-                setClients(clients);
-            }
-        }
-        getClients();
-    }, [user]);
 
     return (
         <div>
