@@ -17,7 +17,7 @@ export default function NavBar({ user, setUser }) {
           
           <Link className="leftNavItem" to="/about">Elite Athletics</Link>
           <div className="rightNavItem" >
-            {user.trainer ? <Link to="/trainerportal">Portal</Link> : <Link>Portal</Link>}
+            {user.trainer ? <Link to="/trainerportal">Portal</Link> : <Link to="/clientportal">Portal</Link>}
             <button onClick={handleLogOut}>LogOut</button>
           </div>
         </nav>

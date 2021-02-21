@@ -5,8 +5,11 @@ module.exports = {
 }
 
 async function getAll(req, res) {
-    const workouts = await Workout.find({});
-    console.log(req.body)
-    return res.status(200).json(workouts);
-  }
-  
+    if(req.user.trainer) {
+        const workouts = await Workout.find({});
+        return res.status(200).json(workouts);
+    } else if (req.user) {
+        const workouts = await Workout.find({user:req.user._id})
+        return res.status(200).json(workouts)
+    }
+}  

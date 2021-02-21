@@ -4,6 +4,7 @@ import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
 import TrainerPortal from '../TrainerPortal/TrainerPortal';
+import ClientPortal from '../ClientPortal/ClientPortal';
 import About from '../About/About';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -21,6 +22,9 @@ export default function App() {
           </Route>
           <Route path="/trainerportal">
             <TrainerPortal user={user}/>
+          </Route>
+          <Route path="/clientportal">
+            <ClientPortal user={user}/>
           </Route>
           <Route path="/login">
             <AuthPage setUser={setUser}/>

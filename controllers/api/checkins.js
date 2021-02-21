@@ -5,7 +5,13 @@ module.exports = {
 }
 
 async function getAll(req, res) {
-    const checkins = await Checkin.find({});
-    return res.status(200).json(checkins);
+    if (req.user.trainer) {
+        const checkins = await Checkin.find({});
+        return res.status(200).json(checkins);
+
+    } else if (req.user) {
+        const checkins = await Checkin.find({user:req.user._id});
+        return res.status(200).json(checkins);
+    }
   }
   
