@@ -7,13 +7,12 @@ export default function ClientListItem({ checkins, setActiveCheckins, nutritionP
         //set "active" client to display on right panel.
         setActiveClient(client);
         //set "active" state to selected client's info.
-        const userWorkouts = workouts.filter(workout => workout.user === client._id);
+        const userWorkouts = workouts.filter(w => w.user === client._id);
         setActiveWorkouts(userWorkouts);
-        const userNutrition = nutritionPlans.filter(plan => plan.user === client._id);
+        const userNutrition = nutritionPlans.filter(p => p.user === client._id);
         setActiveNutritionPlans(userNutrition);
         const userCheckins = checkins.filter(c => c.user === client._id);
         setActiveCheckins(userCheckins);
-
     }
 
     return (

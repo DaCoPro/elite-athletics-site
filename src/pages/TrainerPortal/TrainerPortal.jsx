@@ -53,7 +53,6 @@ export default function TrainerPortal({ user }) {
                 />
             </div>
             <div className="clientDetail">
-                
                 <ClientDetails 
                     activeClient={activeClient}
                     activeWorkouts={activeWorkouts}
